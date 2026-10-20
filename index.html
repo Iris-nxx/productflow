@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProductFlow</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="rail" aria-label="功能目录">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="18" height="18">
+            <path fill="currentColor" d="M12 2.2 13.4 8.6 19.8 10 13.4 11.4 12 17.8 10.6 11.4 4.2 10 10.6 8.6 12 2.2Z" />
+            <path fill="currentColor" d="M18.2 14.2 18.8 16.4 21 17 18.8 17.6 18.2 19.8 17.6 17.6 15.4 17 17.6 16.4 18.2 14.2Z" />
+          </svg>
+        </span>
+        <strong>ProductFlow</strong>
+      </div>
+      <button type="button" class="new-project" id="new-project">
+        <span>+ 新建项目</span>
+        <kbd id="new-key">⌘N</kbd>
+      </button>
+      <p class="rail-label">工作空间</p>
+      <button type="button" class="nav-item" data-mode="prd">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M7 3.8h7.2L19 8.6V20.2H7z"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M14 3.8V8.6h5M9.2 12.2h6.2M9.2 15.6h6.2"/></svg>
+        <span>需求撰写</span>
+      </button>
+      <button type="button" class="nav-item" data-mode="brainstorm">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M9 18.5h6M10 21h4"/><path fill="none" stroke="currentColor" stroke-width="1.8" d="M8.2 14.2a5.6 5.6 0 1 1 7.6 0c-.8.7-1.3 1.5-1.5 2.5H9.7c-.2-1-.7-1.8-1.5-2.5Z"/></svg>
+        <span>头脑风暴</span>
+      </button>
+      <button type="button" class="nav-item" data-mode="competitor">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="11" cy="11" r="5.4" fill="none" stroke="currentColor" stroke-width="1.8"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M15.2 15.2 19.2 19.2"/></svg>
+        <span>竞品调研</span>
+      </button>
+      <div class="rail-split"></div>
+      <p class="rail-label">最近项目</p>
+      <div class="recent" id="recent"></div>
+    </aside>
+    <div class="shell">
+    <section class="launch" id="launch">
+      <h1>先想清楚，再动手</h1>
+      <form class="launch-card" id="launch-form">
+        <label class="sr-only" for="launch-input">问题</label>
+        <textarea id="launch-input" rows="3" placeholder="描述你要做的产品、功能，或想看的竞品"></textarea>
+        <div class="launch-bar">
+          <div class="launch-modes" role="group" aria-label="功能">
+            <button type="button" data-launch="prd" class="current">需求撰写</button>
+            <button type="button" data-launch="brainstorm">头脑风暴</button>
+            <button type="button" data-launch="competitor">竞品调研</button>
+          </div>
+          <button type="submit" id="launch-send" aria-label="发送">发送</button>
+        </div>
+      </form>
+      <div class="launch-examples">
+        <p class="suggest-label">为你推荐</p>
+        <div id="launch-suggests"></div>
+      </div>
+    </section>
+    <div class="view-switch" id="view-switch">
+      <button type="button" data-view="doc" class="current">文档</button>
+      <button type="button" data-view="talk">访谈</button>
+    </div>
+
+    <div class="workspace" hidden>
+      <section class="sheet-wrap" aria-label="产品需求文档">
+        <div class="doc-top">
+          <h1 id="mode-title">需求撰写</h1>
+          <div class="doc-meta">
+            <span class="avatar" aria-hidden="true"></span>
+            <ol class="phases" id="phases" aria-label="撰写阶段"></ol>
+            <span class="sep" id="status-sep" aria-hidden="true">|</span>
+            <p id="doc-status">尚未开始</p>
+            <div class="sheet-actions">
+              <button type="button" id="copy" disabled>复制</button>
+              <button type="button" id="download" disabled>下载</button>
+            </div>
+          </div>
+        </div>
+        <div class="paper-scroll">
+          <article class="paper" id="paper">
+            <h2 id="doc-title" contenteditable="true" data-placeholder="请输入标题" spellcheck="false"></h2>
+            <div id="doc-body" contenteditable="true" data-placeholder="直接在这里写，或从右侧开始访谈。" spellcheck="false"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="interview" aria-label="访谈">
+        <div class="panel-tools">
+          <button type="button" class="text-btn" id="reset">重新开始</button>
+        </div>
+        <div class="hero" id="hero">
+          <div class="mark" aria-hidden="true">
+            <svg viewBox="0 0 64 40" width="64" height="40">
+              <defs>
+                <linearGradient id="loop" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#7ec8ff" />
+                  <stop offset="0.5" stop-color="#3d8bff" />
+                  <stop offset="1" stop-color="#245bff" />
+                </linearGradient>
+              </defs>
+              <path d="M8 20c0-8 7-14 14-8 4 3 6 8 10 8s6-5 10-8c7-6 14 0 14 8s-7 14-14 8c-4-3-6-8-10-8s-6 5-10 8c-7 6-14 0-14-8z" fill="none" stroke="url(#loop)" stroke-width="5" stroke-linecap="round" />
+            </svg>
+          </div>
+          <p class="greeting">今天要写哪一份需求？</p>
+          <p class="suggest-label">为你推荐</p>
+          <div class="suggests" id="suggests">
+            <button type="button" data-prompt="帮我把一个新功能写成产品需求"><span>需求</span>帮我把一个新功能写成产品需求</button>
+            <button type="button" data-prompt="帮我划清这次做什么、不做什么"><span>范围</span>帮我划清这次做什么、不做什么</button>
+            <button type="button" data-prompt="帮我把成功标准写成可以验收的数字"><span>指标</span>帮我把成功标准写成可以验收的数字</button>
+            <button type="button" data-prompt="按目前的访谈起草 PRD"><span>文档</span>按目前的访谈起草 PRD</button>
+          </div>
+        </div>
+        <div class="log" id="log" aria-live="polite"></div>
+        <form class="composer" id="composer">
+          <label class="sr-only" for="input">回复</label>
+          <textarea id="input" rows="1" placeholder="发消息，或描述要写的需求"></textarea>
+          <div class="composer-bar">
+            <button type="submit" id="send" aria-label="发送">↑</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

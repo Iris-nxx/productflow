@@ -1,0 +1,45 @@
+{
+  "version": 1,
+  "skills": {
+    "analytics": {
+      "source": "https://github.com/coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "computedHash": "9550ba9a282c2ea1eef4eb16bab3a05450cfba83c1a2cc909e8a7f8146cb76d5"
+    },
+    "brainstorming": {
+      "source": "https://github.com/obra/superpowers",
+      "sourceType": "github",
+      "computedHash": "fc6339f0e5b48c63279bd4f6c6340db55301b69ccc37a13e1e52bd5b3062746c"
+    },
+    "copywriting": {
+      "source": "https://github.com/coreyhaines31/marketingskills",
+      "sourceType": "github",
+      "computedHash": "b62e532dd34dc666288b241ea05e4e1f36f011d4f65d5d3129e85603064ac1c4"
+    },
+    "design-taste-frontend": {
+      "source": "https://github.com/Leonxlnx/taste-skill",
+      "sourceType": "github",
+      "computedHash": "a5d2a6d7613d5f6665997cca26d5a3472c46a39857dd34ba3329212945da0dc7"
+    },
+    "frontend-design": {
+      "source": "https://github.com/anthropics/skills",
+      "sourceType": "github",
+      "computedHash": "89496d5dd00f4810205f351759594fc2742bf8eea85a2f2b2d1de59f4bd91576"
+    },
+    "pm-competitor-deconstructor": {
+      "source": "https://github.com/spacezephyr/pm-skills",
+      "sourceType": "github",
+      "computedHash": "bcf8bdeb7222e25bf79f1a6b90cc80a624c5ba6458a5b543ddc854d26aaad1b2"
+    },
+    "prd": {
+      "source": "https://github.com/github/awesome-copilot",
+      "sourceType": "github",
+      "computedHash": "1f3e1f005fc40fda85d250ae906c8ee4f7e8e833e23adfeca6542c19609fd7cd"
+    },
+    "skill-creator": {
+      "source": "https://github.com/anthropics/skills",
+      "sourceType": "github",
+      "computedHash": "5ea13a6d9f0d4bb694405d79acd00cadec0d21bb138c4dd10fcf3c500cb835c2"
+    }
+  }
+}
