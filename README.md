@@ -41,3 +41,8 @@ python3 server.py
 > 修改 `.env` 配置后，需要重启服务生效。
 
 3. 浏览器访问：[http://127.0.0.1:8765/](http://127.0.0.1:8765/)
+
+skill引用如下
+需求撰写：https://github.com/github/awesome-copilot
+头脑风暴：https://github.com/obra/superpowers
+竞品调研：https://github.com/spacezephyr/pm-skills
